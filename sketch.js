@@ -3,7 +3,7 @@ let rows, cols, scl, board, next;
 function setup() 
 {
   //createCanvas(displayWidth, displayHeight);
-  createCanvas(800, 600);
+  createCanvas(500, 500);
   scl = 15;
   rows = floor(height/scl);
   cols = floor(width/scl);
@@ -20,16 +20,18 @@ function setup()
     next[i] = new Array(cols);
   }
 
+  ellipseMode(CORNER);
   init();
 
 }
 
 function draw() 
 {
-  frameRate(50);
+  frameRate(70);
   background(0);
   generate();
-  noStroke();
+  stroke(30, 40, 40);
+  strokeWeight(2);
 
   for(let i = 0; i < rows; i++)
   {
@@ -38,12 +40,12 @@ function draw()
       if(board[i][j] == 1)
       {
         fill(10, 100, 70);
-        rect(j * scl, i * scl, scl - 5);
+        ellipse(j * scl + 5, i * scl + 5, scl - 4);
       }
       else
       {
         fill(0);
-        rect(j * scl, i * scl, scl - 5);
+        ellipse(j * scl + 5, i * scl + 5, scl - 4);
       }
     }
   }
